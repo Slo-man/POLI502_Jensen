@@ -1,0 +1,96 @@
+---
+title: "R code for Data Science for Beginners"
+subtitle: " Day 2: Individual Exercise"
+author: "Aric Jensen"  #If multiple, 'c("A", "B")'
+date: "2024-9-10"  #r Sys.Date()
+output:
+  pdf_document: default
+  html_document: default
+format: 
+  html: default
+  pdf: default
+ 
+---
+
+## Task 1. `if...else` function
+
+Mary and John's families (each family has 5 members) are going to a movie and have a hard time deciding who will sit where in a row with 10 seats. You decide to help them sort it out. Please let the Mary's family sit in the number 1-5 and the John's in the number 6-10.
+
+Please use `if...else` function to complete the task.
+
+```{r}
+seat=seq(1:10)
+ifelse(seat<=5,"Mary's","John's")
+```
+
+## Task 1-2.
+
+### You want two family members to know each other better so decide to mix them up. Please write a script to let one family to sit next to the other family members in a row. Again use the if..else function.
+
+```{r}
+seat=seq(1:10)
+ifelse(seat%%2==0, "Mary's", "John's")
+```
+
+## Task 2. loop
+
+### 2-1
+
+We are now in the year of 2022. Please use for loop to print out all the years starting from 2012 to 2022. WRITE YOUR CODE HERE
+
+```{r}
+years=c(2012:2022)
+for(year in years){
+  print(year)
+}
+```
+
+### 2-2
+
+Please use `paste()` function to write a complete sentence like "The year is 2012".
+
+```{r}
+for(year in years){
+  print(paste("This year is", year))
+}
+```
+
+### 2-3
+
+Turns out we don't really like 2020 and 2021 because Covid messed up many parts of our lives. Please don't print out these two years using the next function.
+
+```{r}
+for(year in years){
+  if(year %in% c(2020,2021)){
+    next
+  }
+  print(paste("This year is", year))
+}
+```
+
+## Task 3. functions
+
+Please write a function that will always add 10 in addition to whatever number you put in.
+
+```{r}
+ten_more = function(dogs){
+  dogs = dogs+10
+  print(dogs)
+}
+ten_more (3)
+```
+
+### Please write a function that will always identify a missing value in your vector. And please write a complete sentence to show where the missing value is located in the vector
+
+```{r}
+missing_value = function(x1){
+  has_missing_value = any(is.na(x1))
+  if(has_missing_value){
+    message("The missing values are at:")
+    print(paste("Position",which(is.na(x1) )))
+  }
+}
+missing_value(c(3,5,NA,6,8,2,NA,34,NA,21))
+```
+
+Finally, execute the entire contents of this file. Make sure that you don't get any error message. If you get an error message, it's probably because you forgot to comment out something.

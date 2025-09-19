@@ -6,6 +6,9 @@ date: "2024-9-9"  #r Sys.Date()
 output:
   pdf_document: default
   html_document: default
+format: 
+  html: default
+  pdf: default
 ---
 
 ## Task 1. Modify the author name above to your name
